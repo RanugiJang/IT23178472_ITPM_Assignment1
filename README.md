@@ -15,3 +15,4 @@ The automation focuses on validating the real-time output behavior of the Singli
 Install project dependencies:
 ```bash
 npm install
+npx playwright install
