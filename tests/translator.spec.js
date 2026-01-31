@@ -1,9 +1,19 @@
 const { test, expect } = require('@playwright/test');
 
+async function safeGoto(page, url) {
+  try {
+    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  } catch (e) {
+    // quick retry once
+    await page.waitForTimeout(1000);
+    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  }
+}
+
 test.describe('ITPM Assignment 1 – Translator Automation', () => {
 
   test('Pos_Fun_0001 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -14,7 +24,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0002 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -25,7 +35,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0003 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+   await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -36,7 +46,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0004 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -47,7 +57,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0005 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+   await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -58,7 +68,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0006 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -69,7 +79,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0007 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+   await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -80,7 +90,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0008 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+  await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -91,7 +101,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0009 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -102,7 +112,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0010 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -113,7 +123,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0011 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -124,7 +134,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0012 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -135,7 +145,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0013 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -146,7 +156,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0014 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -157,7 +167,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0015 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -168,7 +178,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0016 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -179,7 +189,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0017 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -190,7 +200,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0018 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -201,7 +211,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0019 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -212,7 +222,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0020 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -223,7 +233,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0021 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -234,7 +244,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0022 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+   await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -245,7 +255,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0023 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -256,7 +266,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0024 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -267,7 +277,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_Fun_0025 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -278,7 +288,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Pos_UI_0001 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -289,7 +299,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Neg_Fun_0001 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -300,7 +310,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Neg_Fun_0002 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -311,7 +321,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Neg_Fun_0003 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+   await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -322,7 +332,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Neg_Fun_0004 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+   await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -333,7 +343,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Neg_Fun_0005 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -344,7 +354,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Neg_Fun_0006 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -355,7 +365,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Neg_Fun_0007 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -366,7 +376,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Neg_Fun_0008 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -377,7 +387,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Neg_Fun_0009 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+    await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
@@ -388,7 +398,7 @@ test.describe('ITPM Assignment 1 – Translator Automation', () => {
   });
 
   test('Neg_Fun_0010 - Output updates automatically in real time', async ({ page }) => {
-    await page.goto('https://www.swifttranslator.com/');
+   await safeGoto(page, 'https://www.swifttranslator.com/');
 
     const inputBox = page.getByRole('textbox', { name: 'Input Your Singlish Text Here.' });
 
