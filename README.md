@@ -9,6 +9,8 @@ The automation focuses on validating the real-time output behavior of the Singli
 
 ## Prerequisites
 - Node.js (LTS version)
+- VS Code
+- Playwright 
 - Internet connection
 
 ## Setup Instructions
