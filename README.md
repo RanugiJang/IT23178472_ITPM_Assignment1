@@ -18,3 +18,4 @@ Install project dependencies:
 ```bash
 npm install
 npx playwright install
+
